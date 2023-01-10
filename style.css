@@ -47,3 +47,40 @@ main {
 .add-book:hover {
 	background-color: var(--dark-grey);
 }
+.form-container {
+	display: block;
+}
+.form {
+	display: flex;
+	flex-direction: column;
+	width: 300px;
+	gap: 20px;
+	padding: 10px;
+	text-align: center;
+	background-color: var(--grey);
+	border-radius: 5px;
+	border: none;
+	box-shadow: 2px 2px 2px 2px rgb(99, 99, 99);
+}
+.form h3 {
+	font-size: 1.3rem;
+	color: var(--black);
+}
+.form input {
+	border-radius: 5px;
+	border: none;
+	outline: none;
+	background-color: var(--white);
+	padding: 10px;
+}
+.new-book {
+	font-size: 1.2rem;
+	padding: 10px;
+	border-radius: 5px;
+	border: none;
+	background-color: #9fff9c;
+	transition: 300ms all ease;
+}
+.new-book:hover {
+	filter: brightness(90%);
+}
