@@ -21,7 +21,7 @@
 		</nav>
 		<main>
 			<div class="container">
-				<button id="add-book">+ Add Book</button>
+				<button id="add-book" class="add-book">+ Add Book</button>
 				<div class="form-container" id="form-Container">
 					<form action="" id="book-form" class="form">
 						<h3>Add a New Book</h3>
@@ -32,6 +32,7 @@
 							placeholder="Title"
 							required
 							maxlength="200"
+							class="title"
 						/>
 						<input
 							type="text"
@@ -40,6 +41,7 @@
 							placeholder="Author"
 							required
 							maxlength="100"
+							class="author"
 						/>
 						<input
 							type="number"
@@ -48,12 +50,15 @@
 							placeholder="pages"
 							max="10000"
 							required
+							class="pages"
 						/>
 						<div class="read-book">
 							<label for="read">Have you read the book</label>
-							<input type="checkbox" name="read" id="read" />
+							<input type="checkbox" name="read" id="read" class="read" />
 						</div>
-						<button type="submit" id="new-book">Add Book</button>
+						<button type="submit" id="new-book" class="new-book">
+							Add Book
+						</button>
 					</form>
 				</div>
 			</div>

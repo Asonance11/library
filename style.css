@@ -20,18 +20,30 @@ body {
 nav {
 	background-color: var(--white);
 	padding: 20px 35px;
-	box-shadow: 0 2px 2px 2px var(--dark-grey);
+	box-shadow: 0 2px 2px 2px var(--grey);
 }
 nav h1 {
 	font-size: 35px;
 	color: var(--black);
 }
 main {
-	padding: 20px 30px;
+	padding: 30px;
 }
 .container {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+}
+.add-book {
+	font-size: 1.5rem;
+	padding: 10px;
+	border-radius: 5px;
+	border: none;
+	outline: none;
+	background-color: transparent;
+	transition: 300ms all ease;
+}
+.add-book:hover {
+	background-color: var(--dark-grey);
 }
