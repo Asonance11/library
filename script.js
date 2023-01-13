@@ -12,9 +12,9 @@ let bookAddition;
 addBook.addEventListener('click', () => {
 	formContainer.style.display = 'block';
 });
-newBook.addEventListener('click', () => {
+/*newBook.addEventListener('click', () => {
 	addBookToLibrary();
-});
+});*/
 
 //constructor
 function Book(title, author, pages, readBook) {
