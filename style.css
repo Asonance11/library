@@ -48,7 +48,8 @@ main {
 	background-color: var(--dark-grey);
 }
 .form-container {
-	display: block;
+	display: none;
+	padding-top: 20px;
 }
 .form {
 	display: flex;
@@ -83,4 +84,44 @@ main {
 }
 .new-book:hover {
 	filter: brightness(90%);
+}
+.library {
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+.book {
+	display: flex;
+	flex-direction: column;
+	align-items: space-between;
+	justify-content: center;
+	gap: 20px;
+	border: none;
+	border-radius: 10px;
+	background-color: var(--white);
+	box-shadow: 2px 2px 2px 2px rgb(99, 99, 99);
+	width: 300px;
+	padding: 20px;
+}
+.title {
+	text-align: center;
+	font-size: 1.4rem;
+}
+.author {
+	text-align: center;
+	font-size: 1.3rem;
+}
+.pages {
+	text-align: center;
+	font-size: 1.2rem;
+}
+.read {
+	padding: 10px;
+	border-radius: 5px;
+	border: none;
+}
+.remove {
+	padding: 10px;
+	border-radius: 5px;
+	border: none;
 }
