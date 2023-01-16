@@ -1,11 +1,13 @@
 const addBook = document.getElementById('add-book');
 const formContainer = document.getElementById('form-Container');
+const form = document.getElementById('book-form');
 const title = document.getElementById('title');
 const author = document.getElementById('author');
 const pages = document.getElementById('pages');
 const readBook = document.getElementById('read');
 const newBook = document.getElementById('new-book');
-const bookSection = document.getElementById('library');
+const library = document.getElementById('library');
+
 let myLibrary = []; //array for storing books
 let bookAddition;
 
@@ -17,7 +19,7 @@ addBook.addEventListener('click', () => {
 });*/
 
 //constructor
-function Book(title, author, pages, readBook) {
+function book(title, author, pages, readBook) {
 	this.title = title;
 	this.author = author;
 	this.pages = pages;
@@ -27,42 +29,60 @@ function Book(title, author, pages, readBook) {
 //fuction to add a new book to the array
 function addBookToLibrary() {
 	formContainer.style.display = 'none';
-	e.preventDefault();
-	bookAddition = new Book(
+	// e.preventDefault();
+	// bookAddition = new Book(
+	// 	title.value,
+	// 	author.value,
+	// 	pages.value,
+	// 	readBook.checked
+	// );
+	// myLibrary.push(bookAddition);
+	// createBook();
+	myLibrary[myLibrary.length] = new book(
 		title.value,
 		author.value,
 		pages.value,
 		readBook.checked
 	);
-	myLibrary.push(bookAddition);
-	createBook();
 }
 //function to create the book div with dom elements
-function createBook(item) {
-	const bookDiv = document.createElement('div');
-	const titleDiv = document.createElement('div');
-	const authorDiv = document.createElement('div');
-	const pagesDiv = document.createElement('div');
-	const readDiv = document.createElement('button');
-	const removeDiv = document.createElement('button');
+function createBook() {
+	library.innerHTML = '';
 
-	titleDiv.textContent = item.title;
-	titleDiv.classList.add('title');
-	bookDiv.appendChild(titleDiv);
+	for (let i = 0; i < myLibrary.length; i++) {
+		const bookDiv = document.createElement('div');
+		const titleDiv = document.createElement('div');
+		const authorDiv = document.createElement('div');
+		const pagesDiv = document.createElement('div');
+		const readBtn = document.createElement('button');
+		const removeBtn = document.createElement('button');
 
-	authorDiv.textContent = item.author;
-	authorDiv.classList.add('author');
-	bookDiv.appendChild(authorDiv);
+		titleDiv.textContent = myLibrary[i].title;
+		authorDiv.textContent = myLibrary[i].author;
+		pagesDiv.textContent = `${myLibrary[i].pages} pages`;
+		readBtn.textContent = myLibrary[i].read;
+		removeBtn.textContent = 'Remove';
+		titleDiv.classList.add('title');
+		authorDiv.classList.add('author');
 
-	pagesDiv.textContent = item.pages;
-	pagesDiv.classList.add('pages');
-	bookDiv.appendChild(pagesDiv);
+		pagesDiv.classList.add('pages');
+		readBtn.classList.add('read');
+		removeBtn.classList.add('remove');
+		bookDiv.classList.add('book');
 
-	bookDiv.appendChild(readDiv);
-	readDiv.classList.add('read');
-	bookDiv.appendChild(removeDiv);
-	removeDiv.classList.add('remove');
+		bookDiv.appendChild(titleDiv);
+		bookDiv.appendChild(authorDiv);
+		bookDiv.appendChild(pagesDiv);
+		bookDiv.appendChild(readBtn);
+		bookDiv.appendChild(removeBtn);
 
-	bookDiv.classList.add('book');
-	bookSection.appendChild(bookDiv);
+		library.appendChild(bookDiv);
+	}
 }
+
+form.addEventListener('submit', function (e) {
+	addBookToLibrary();
+	createBook();
+	e.preventDefault();
+	form.reset();
+});
