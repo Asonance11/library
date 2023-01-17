@@ -12,7 +12,11 @@ let myLibrary = []; //array for storing books
 let bookAddition;
 
 addBook.addEventListener('click', () => {
-	formContainer.style.display = 'block';
+	if (formContainer.style.display == 'block') {
+		formContainer.style.display = 'none';
+	} else if ((formContainer.style.display = 'none')) {
+		formContainer.style.display = 'block';
+	}
 });
 /*newBook.addEventListener('click', () => {
 	addBookToLibrary();
@@ -60,7 +64,7 @@ function createBook() {
 		titleDiv.textContent = myLibrary[i].title;
 		authorDiv.textContent = myLibrary[i].author;
 		pagesDiv.textContent = `${myLibrary[i].pages} pages`;
-		readBtn.textContent = myLibrary[i].read;
+		// readBtn.textContent = myLibrary[i].read;
 		removeBtn.textContent = 'Remove';
 		titleDiv.classList.add('title');
 		authorDiv.classList.add('author');
@@ -69,6 +73,24 @@ function createBook() {
 		readBtn.classList.add('read');
 		removeBtn.classList.add('remove');
 		bookDiv.classList.add('book');
+
+		if (myLibrary[i].readBook) {
+			readBtn.textContent = 'Read';
+			readBtn.style.backgroundColor = '#63da63';
+		} else {
+			readBtn.textContent = 'Not Read';
+			readBtn.style.backgroundColor = '#e04f63';
+		}
+
+		readBtn.addEventListener('click', function () {
+			myLibrary[i].readBook = !myLibrary[i].readBook;
+			createBook();
+		});
+
+		removeBtn.addEventListener('click', () => {
+			myLibrary.splice(i, 1);
+			createBook();
+		});
 
 		bookDiv.appendChild(titleDiv);
 		bookDiv.appendChild(authorDiv);

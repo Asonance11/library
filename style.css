@@ -48,6 +48,10 @@ main {
 	background-color: var(--dark-grey);
 }
 .form-container {
+	position: fixed;
+	z-index: 1;
+	top: 50%;
+	transform: translateY(-50%);
 	display: none;
 	padding-top: 20px;
 }
@@ -87,8 +91,10 @@ main {
 }
 .library {
 	display: flex;
-	justify-content: space-between;
+	justify-content: center;
 	flex-wrap: wrap;
+	gap: 20px;
+	padding-top: 30px;
 }
 .book {
 	display: flex;
