@@ -21,14 +21,21 @@ addBook.addEventListener('click', () => {
 /*newBook.addEventListener('click', () => {
 	addBookToLibrary();
 });*/
-
-//constructor
-function book(title, author, pages, readBook) {
-	this.title = title;
-	this.author = author;
-	this.pages = pages;
-	this.readBook = readBook;
+class book {
+	constructor(title, author, pages, readBook) {
+		this.title = title;
+		this.author = author;
+		this.pages = pages;
+		this.readBook = readBook;
+	}
 }
+//constructor
+// function book(title, author, pages, readBook) {
+// 	this.title = title;
+// 	this.author = author;
+// 	this.pages = pages;
+// 	this.readBook = readBook;
+// }
 
 //fuction to add a new book to the array
 function addBookToLibrary() {
